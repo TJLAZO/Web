@@ -1,0 +1,130 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@Page.Title - My ASP.NET Web Page</title>
+    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initializes the carousel
+            $(".start-slide").click(function () {
+                $("#myCarousel").carousel('cycle');
+            });
+            // Stops the carousel
+            $(".pause-slide").click(function () {
+                $("#myCarousel").carousel('pause');
+            });
+            // Cycles to the previous item
+            $(".prev-slide").click(function () {
+                $("#myCarousel").carousel('prev');
+            });
+            // Cycles to the next item
+            $(".next-slide").click(function () {
+                $("#myCarousel").carousel('next');
+            });
+            // Cycles the carousel to a particular frame
+            $(".slide-one").click(function () {
+                $("#myCarousel").carousel(0);
+            });
+            $(".slide-two").click(function () {
+                $("#myCarousel").carousel(1);
+            });
+            $(".slide-three").click(function () {
+                $("#myCarousel").carousel(2);
+            });
+        });
+    </script>
+    <style type="text/css">
+        h2 {
+            margin: 0;
+            color: #666;
+            padding-top: 90px;
+            font-size: 52px;
+            font-family: "trebuchet ms", sans-serif;
+        }
+
+        .item {
+            background-color: #333;
+            text-align: center;
+            height: 300px !important;
+        }
+
+        .carousel {
+            margin: 20px 0;
+        }
+
+        .control-buttons {
+            text-align: center;
+        }
+
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title"><a href="~/">your logo here</a></p>
+            </div>
+
+            <nav>
+                <ul id="menu">
+                    <li><a href="~/">Home</a></li>
+                    <li><a href="~/Servicios">Services</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            <script type="text/javascript">
+    var d = new Date();
+    document.write(d.getDate(), '/' + d.getMonth(), '/' + d.getFullYear());
+            </script>
+
+            <script type="text/javascript">
+                function startTime() {
+                    today = new Date();
+                    h = today.getHours();
+                    m = today.getMinutes();
+                    s = today.getSeconds();
+                    m = checkTime(m);
+                    s = checkTime(s);
+                    document.getElementById('reloj').innerHTML = h + ":" + m + ":" + s;
+                    t = setTimeout('startTime()', 500);
+                }
+                function checkTime(i)
+                { if (i < 10) { i = "0" + i; } return i; }
+                window.onload = function () { startTime(); }
+            </script>
+            <div id="reloj" style="font-size:20px;"></div>
+            @RenderBody()
+        </section>
+
+    </div>
+</body>
+</html>
